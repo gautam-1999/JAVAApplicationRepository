@@ -13,7 +13,7 @@ pipeline {
     }
     stage('Setting Classpath') {
       steps {
-        sh 'export CLASSPATH=$CLASSPATH:/opt/oracle/middleware/oracle_common/modules/org.apache.maven_3.2.5/bin'
+        sh 'export PATH=$PATH:/opt/oracle/middleware/oracle_common/modules/org.apache.maven_3.2.5/bin'
       }
     }
     stage('BuildAndDeploy') {
