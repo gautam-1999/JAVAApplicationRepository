@@ -11,16 +11,10 @@ pipeline {
         echo 'Initiating the Build Process'
       }
     }
-    stage('Setting Classpath') {
-      steps {
-        sh 'set PATH=$PATH:/opt/oracle/middleware/oracle_common/modules/org.apache.maven_3.2.5/bin'
-      }
-    }
     stage('BuildAndDeploy') {
       steps {
         dir(path: 'JAVAApplicationDeploy') {
-          sh 'set PATH=$PATH:/opt/oracle/middleware/oracle_common/modules/org.apache.maven_3.2.5/bin'
-          sh 'mvn pre-integration-test'
+          sh '/opt/oracle/middleware/oracle_common/modules/org.apache.maven_3.2.5/bin/mvn pre-integration-test'
         }
         
       }
