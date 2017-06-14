@@ -19,6 +19,7 @@ pipeline {
     stage('BuildAndDeploy') {
       steps {
         dir(path: 'JAVAApplicationDeploy') {
+          sh 'set PATH=$PATH:/opt/oracle/middleware/oracle_common/modules/org.apache.maven_3.2.5/bin'
           sh 'mvn pre-integration-test'
         }
         
