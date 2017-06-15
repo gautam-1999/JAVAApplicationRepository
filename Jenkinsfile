@@ -13,7 +13,6 @@ pipeline {
     }
     stage('BuildAndDeploy') {
       steps {
-        dir(path: 'JAVAApplicationDeploy')
         git(url: 'https://github.com/Indrayan123/CommonRepo', branch: 'master')
       }
     }
