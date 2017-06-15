@@ -14,7 +14,7 @@ pipeline {
     stage('BuildAndDeploy') {
       steps {
         dir(path: 'JAVAApplicationDeploy') {
-          sh '/opt/oracle/middleware/oracle_common/modules/org.apache.maven_3.2.5/bin/mvn pre-integration-test'
+          git 'https://github.com/Indrayan123/CommonRepo'
         }
         
       }
