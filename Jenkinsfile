@@ -13,7 +13,10 @@ pipeline {
     }
     stage('BuildAndDeploy') {
       steps {
-        git(url: 'https://github.com/Indrayan123/CommonRepo', branch: 'master')
+        dir(path: 'JAVAApplicationDeploy') {
+          sh '/opt/oracle/middleware/oracle_common/modules/org.apache.maven_3.2.5/bin/mvn pre-integration-test'
+        }
+        
       }
     }
   }
