@@ -110,9 +110,9 @@
               <outputDirectory>${basedir}/../${env.buildlocation}/</outputDirectory>
               <resources>         
                 <resource>
-                  <directory>${scac.output.dir}</directory>
+                  <directory>${basedir}/target/</directory>
                   <includes>
-                    <include>${basedir}/target/${project.build.finalName}.war</include>					
+                    <include>${project.build.finalName}.war</include>					
                   </includes>
                   <filtering>false</filtering>
                 </resource>
