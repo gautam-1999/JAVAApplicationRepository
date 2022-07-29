@@ -6,7 +6,7 @@
   <version>1.0-SNAPSHOT</version>
   <description>Generated POM from JDeveloper for project Model</description>
   <dependencies>
-    <dependency>
+    <!--dependency>
       <groupId>com.oracle.adf.library</groupId>
       <artifactId>Java-EE</artifactId>
       <version>12.2.1-0-0</version>
@@ -19,7 +19,13 @@
       <version>12.2.1-0-0</version>
       <type>pom</type>
       <scope>provided</scope>
-    </dependency>   
+    </dependency--> 
+<dependency>
+    <groupId>javax.servlet</groupId>
+    <artifactId>javax.servlet-api</artifactId>
+    <version>3.0.1</version>
+    <scope>provided</scope>
+</dependency>	
   </dependencies>
   <build>
     <sourceDirectory>src/</sourceDirectory>
