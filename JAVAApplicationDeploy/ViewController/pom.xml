@@ -107,7 +107,7 @@
               <goal>copy-resources</goal>
             </goals>
             <configuration>
-              <outputDirectory>${basedir}/../${env.buildlocation}/</outputDirectory>
+              <outputDirectory>${basedir}/../target/</outputDirectory>
               <resources>         
                 <resource>
                   <directory>${basedir}/target/</directory>
