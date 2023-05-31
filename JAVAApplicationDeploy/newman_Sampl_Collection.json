@@ -1,0 +1,75 @@
+{
+	"info": {
+		"name": "Azure Function App",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Verify HttpExample response",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+					    	"pm.environment.set(\"Constant_Value_Check\", \"Hello there\")",
+							"pm.test(\"Status Code 200\", () => {\r",
+							"    pm.response.to.have.status(200)\r",
+							"})\r",
+							"\r",
+							"const responseData = pm.response.text()\r",
+							"\r",
+							"console.log('###')",
+							"\r",
+							"console.log(responseData)",
+							"pm.test(\"Contains 'Hello there'\", () => {\r",
+							"pm.expect(responseData).to.include(pm.environment.get(\"Constant_Value_Check\"))\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+		
+			  "request": {
+      "url": "https://java-func1612.azurewebsites.net/api/HttpExample?name=eee",
+      "method": "GET"
+    }
+			,
+			"response": []
+		},
+		{
+		"name": "Verify HttpExampleRetry response",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status Code 200\", () => {\r",
+							"    pm.response.to.have.status(200)\r",
+							"})\r",
+							"\r",
+							
+							"const responseData = pm.response.text()\r",
+							"\r",
+							"console.log('###')",
+							"\r",
+							"console.log(responseData)",
+							"pm.test(\"Contains input argument\", () => {\r",
+							"pm.expect(responseData).to.include(pm.environment.get(\"value_passed\"))\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+		
+			  "request": {
+      "url": "https://java-func1612.azurewebsites.net/api/HttpExample?name={{value_passed}}",
+      "method": "GET"
+    }
+			,
+			"response": []
+		}
+		
+	]
+}
