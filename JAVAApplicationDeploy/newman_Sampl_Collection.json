@@ -1,75 +1,58 @@
 {
 	"info": {
-		"name": "Azure Function App",
+		"_postman_id": "66a00aba-b101-4959-96d9-a68111b650ae",
+		"name": "6.0 user",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "Verify HttpExample response",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-					    	"pm.environment.set(\"Constant_Value_Check\", \"Hello there\")",
-							"pm.test(\"Status Code 200\", () => {\r",
-							"    pm.response.to.have.status(200)\r",
-							"})\r",
-							"\r",
-							"const responseData = pm.response.text()\r",
-							"\r",
-							"console.log('###')",
-							"\r",
-							"console.log(responseData)",
-							"pm.test(\"Contains 'Hello there'\", () => {\r",
-							"pm.expect(responseData).to.include(pm.environment.get(\"Constant_Value_Check\"))\r",
-							"})"
-						],
-						"type": "text/javascript"
+			"name": "6.0 User",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "welcome1",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "fdadmin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userName\": \"{{USER_USERNAME}}\",\r\n    \"password\": \"{{USER_PASSWORD}}\",\r\n    \"email\": \"email@flexagon.com\",\r\n    \"lastName\": \"Postman\",\r\n    \"firstName\": \"User\",\r\n    \"userGroups\":\r\n    [\r\n        {\r\n            \"groupId\": 10942\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
 					}
+				},
+				"url": {
+					"raw": "http://{{FLEXDEPLOY_SERVER_HOSTNAME}}:{{FLEXDEPLOY_SERVER_PORT}}/flexdeploy/rest/v2/administration/security/user/{{USER_ID}}",
+					"protocol": "http",
+					"host": [
+						"{{FLEXDEPLOY_SERVER_HOSTNAME}}"
+					],
+					"port": "{{FLEXDEPLOY_SERVER_PORT}}",
+					"path": [
+						"flexdeploy",
+						"rest",
+						"v2",
+						"administration",
+						"security",
+						"user",
+						"{{USER_ID}}"
+					]
 				}
-			],
-		
-			  "request": {
-      "url": "https://java-func1612.azurewebsites.net/api/HttpExample?name=eee",
-      "method": "GET"
-    }
-			,
-			"response": []
-		},
-		{
-		"name": "Verify HttpExampleRetry response",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status Code 200\", () => {\r",
-							"    pm.response.to.have.status(200)\r",
-							"})\r",
-							"\r",
-							
-							"const responseData = pm.response.text()\r",
-							"\r",
-							"console.log('###')",
-							"\r",
-							"console.log(responseData)",
-							"pm.test(\"Contains input argument\", () => {\r",
-							"pm.expect(responseData).to.include(pm.environment.get(\"value_passed\"))\r",
-							"})"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-		
-			  "request": {
-      "url": "https://java-func1612.azurewebsites.net/api/HttpExample?name={{value_passed}}",
-      "method": "GET"
-    }
-			,
+			},
 			"response": []
 		}
-		
 	]
 }
